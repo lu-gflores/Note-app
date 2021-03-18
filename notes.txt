@@ -1,0 +1,2 @@
+My name is George
+ Here is another message using appendFileSync
