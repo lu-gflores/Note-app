@@ -38,6 +38,14 @@ const removeNote = (title) => {
     saveNotes(keptNotes)
 }
 
+const listNotes = () => {
+    const notes = loadNotes()
+    console.log(chalk.cyan.inverse('Your Notes: '))
+    notes.forEach(note => {
+        console.log(note.title)
+    });
+}
+
 const saveNotes = (notes) => {
     const dataJSON = JSON.stringify(notes)
     fs.writeFileSync('notes.json', dataJSON)
@@ -48,7 +56,7 @@ const loadNotes = () => {
         const dataBuffer = fs.readFileSync('notes.json').toString()
         return JSON.parse(dataBuffer)
     } catch (e) {
-        //if there is no data/file, return an empty array
+        //if there is no data/notes.json file, return an empty array
         return []
     }
 }
@@ -56,5 +64,6 @@ const loadNotes = () => {
 module.exports = {
     getNotes,
     addNote,
-    removeNote
+    removeNote,
+    listNotes
 }
