@@ -1,10 +1,6 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
-const getNotes = () => {
-    return 'Your Notes...'
-}
-
 const addNote = (title, body) => {
     const notes = loadNotes()
     //checks to see if there is a duplicate title in the array. If there is, add it to the duplicate array
@@ -75,7 +71,6 @@ const loadNotes = () => {
 }
 
 module.exports = {
-    getNotes,
     addNote,
     removeNote,
     listNotes,
